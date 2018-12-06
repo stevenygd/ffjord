@@ -8,7 +8,8 @@ from lib.layers.odefunc import divergence_bf, divergence_approx
 
 
 def standard_normal_logprob(z):
-    logZ = -0.5 * math.log(2 * math.pi)
+    dim = z.size(1)
+    logZ = -0.5 * dim * math.log(2 * math.pi)
     return logZ - z.pow(2) / 2
 
 

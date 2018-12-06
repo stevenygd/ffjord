@@ -354,7 +354,7 @@ class AutoencoderODEfunc(nn.Module):
 
         if self.residual:
             dy = dy - y
-            divergence -= torch.ones_like(divergence) * torch.tensor(np.prod(y.shape[1:]), dtype=torch.float32
-                                                                     ).to(divergence)
+            divergence -= torch.ones_like(divergence) \
+                        * torch.tensor(np.prod(y.shape[1:]), dtype=torch.float32).to(divergence)
 
         return dy, -divergence
