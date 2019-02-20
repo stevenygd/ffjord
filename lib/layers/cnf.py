@@ -40,8 +40,8 @@ class CNF(nn.Module):
             _logpz = logpz
 
         if integration_times is None:
-            integration_times = torch.tensor(
-                    [0.0, self.sqrt_end_time * self.sqrt_end_time]).to(z)
+            integration_times = torch.stack(
+                    [torch.tensor(0.).to(z), self.sqrt_end_time * self.sqrt_end_time])
         if reverse:
             integration_times = _flip(integration_times, 0)
 
